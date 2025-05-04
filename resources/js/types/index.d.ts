@@ -41,3 +41,17 @@ export interface User {
     updated_at: string;
     [key: string]: unknown; // This allows for additional properties...
 }
+
+export interface Script {
+    id: number;
+    title: string;
+    description: string;
+    price: number;
+    category: string;
+    rating: number;
+    image: string;
+    isNew?: boolean;
+    isFeatured?: boolean;
+    isOnSale?: boolean;
+    discount?: number;
+}
