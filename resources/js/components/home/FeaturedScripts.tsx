@@ -1,11 +1,17 @@
 import React from 'react';
 import { ChevronRight } from 'lucide-react';
-import { featuredScripts } from '../data/scripts';
+import Datas from '@/lib/datas';
+import { Script } from '@/types';
 import ScriptCard from './ScriptCard';
 
-// Define or import the Script type
-import { Script } from '../types';
-const FeaturedScripts = () => {
+interface FeaturedScriptsProps {
+    onScriptClick: (script: Script) => void;
+}
+
+const FeaturedScripts: React.FC<FeaturedScriptsProps> = ({ onScriptClick }) => {
+    const { scripts }: { scripts: Script[] } = Datas();
+    // only 5 scripts
+    const featuredScripts = scripts.filter((script: Script) => script.isFeatured).slice(0, 4);
   return (
     <section className="py-20 relative">
       <div className="container mx-auto px-4">
@@ -27,7 +33,7 @@ const FeaturedScripts = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {featuredScripts.map((script: Script) => (
-            <ScriptCard key={script.id} script={script} featured />
+            <ScriptCard key={script.id} script={script} featured onScriptClick={onScriptClick} />
           ))}
         </div>
       </div>

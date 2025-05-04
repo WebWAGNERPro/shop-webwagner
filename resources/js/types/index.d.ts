@@ -54,4 +54,7 @@ export interface Script {
     isFeatured?: boolean;
     isOnSale?: boolean;
     discount?: number;
+    sales_count?: number;
+    requirements?: string[];
+    documentation?: string;
 }

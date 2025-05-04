@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ShoppingCart, Star, Eye, Code } from 'lucide-react';
+import { Script } from '@/types';
 
 interface ScriptCardProps {
   script: {
@@ -16,9 +17,10 @@ interface ScriptCardProps {
     discount?: number;
   };
   featured?: boolean;
+  onScriptClick?: (script: Script) => void;
 }
 
-const ScriptCard: React.FC<ScriptCardProps> = ({ script, featured = false }) => {
+const ScriptCard: React.FC<ScriptCardProps> = ({ script, featured = false, onScriptClick }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const originalPrice = script.price;
@@ -66,12 +68,15 @@ const ScriptCard: React.FC<ScriptCardProps> = ({ script, featured = false }) => 
 
         {/* Quick actions overlay - shows on hover */}
         <div className={`absolute inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center gap-3 transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
-          <button className="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white p-2 rounded-full transition-transform hover:scale-110">
-            <Eye className="h-5 w-5" />
-          </button>
-          <button className="bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-full transition-transform hover:scale-110">
-            <ShoppingCart className="h-5 w-5" />
-          </button>
+            <button
+                onClick={() => onScriptClick?.(script)}
+                className="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white p-2 rounded-full transition-transform hover:scale-110"
+            >
+                <Eye className="h-5 w-5" />
+            </button>
+            <button className="bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-full transition-transform hover:scale-110">
+                <ShoppingCart className="h-5 w-5" />
+            </button>
         </div>
       </div>
 
