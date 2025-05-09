@@ -7,7 +7,6 @@ const Datas = () => {
         fetch('/api/scripts')
             .then((response) => response.json())
             .then((data) => {
-                console.log(data)
                 setScripts(data)
             })
             .catch((error) => {

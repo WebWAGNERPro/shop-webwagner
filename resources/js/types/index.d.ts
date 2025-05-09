@@ -57,4 +57,5 @@ export interface Script {
     sales_count?: number;
     requirements?: string[];
     documentation?: string;
+    created_at?: DateTime;
 }

@@ -33,7 +33,7 @@ const Header = () => {
               <ul className="flex space-x-8">
                 <li>
                   <a href="#" className="text-gray-300 hover:text-blue-500 transition-colors">
-                    Home
+                    Accueil
                   </a>
                 </li>
                 <li>
@@ -91,7 +91,7 @@ const Header = () => {
             <ul className="space-y-4">
               <li>
                 <a href="#" className="block text-gray-300 hover:text-blue-500 transition-colors">
-                  Home
+                  Accueil
                 </a>
               </li>
               <li>

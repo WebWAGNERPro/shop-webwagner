@@ -63,8 +63,8 @@ const ScriptDisplay: React.FC<ScriptDisplayProps> = ({ script, onClose }) => {
               className="w-full h-full object-cover"
             />
             {script.isNew && (
-              <div className="absolute top-4 left-4 bg-green-600 text-white text-sm font-medium px-3 py-1 rounded-full">
-                NEW
+              <div className="absolute top-4 left-4 bg-green-600 text-white text-sm font-medium px-3 py-1 rounded-full uppercase">
+                Nouveauté
               </div>
             )}
             {script.isOnSale && (
@@ -150,12 +150,12 @@ const ScriptDisplay: React.FC<ScriptDisplayProps> = ({ script, onClose }) => {
             <div className="mb-8">
               <div className="flex items-baseline mb-4">
                 {script.isOnSale && (
-                  <span className="text-gray-400 line-through text-xl mr-3">${originalPrice}</span>
+                  <span className="text-gray-400 line-through text-xl mr-3">{originalPrice} €</span>
                 )}
-                <span className="text-4xl font-bold text-white">${finalPrice.toFixed(2)}</span>
+                <span className="text-4xl font-bold text-white">{finalPrice.toFixed(2)} €</span>
                 {script.isOnSale && (
                   <span className="ml-3 bg-red-600/20 text-red-400 text-sm font-medium px-3 py-1 rounded-full">
-                    Save ${(originalPrice - finalPrice).toFixed(2)}
+                    Économisez {(originalPrice - finalPrice).toFixed(2)} €
                   </span>
                 )}
               </div>
@@ -163,32 +163,32 @@ const ScriptDisplay: React.FC<ScriptDisplayProps> = ({ script, onClose }) => {
               <div className="flex gap-4">
                 <button className="flex-1 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium flex items-center justify-center transition-all hover:translate-y-[-2px]">
                   <ShoppingCart className="h-5 w-5 mr-2" />
-                  Add to Cart
+                  Ajouter au panier
                 </button>
                 <button className="bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-lg font-medium transition-all hover:translate-y-[-2px]">
-                  Live Preview
+                  Tester le script
                 </button>
               </div>
             </div>
 
             <div className="border-t border-gray-700 pt-6 mb-8">
-              <h3 className="text-lg font-semibold text-white mb-4">Key Features</h3>
+              <h3 className="text-lg font-semibold text-white mb-4">Principales fonctionnalités</h3>
               <div className="grid grid-cols-2 gap-4">
                 <div className="flex items-center text-gray-300">
                   <Shield className="h-5 w-5 text-blue-500 mr-2" />
-                  <span>Secure & Optimized</span>
+                  <span>Sécurisé et optimisé</span>
                 </div>
                 <div className="flex items-center text-gray-300">
                   <Zap className="h-5 w-5 text-blue-500 mr-2" />
-                  <span>Regular Updates</span>
+                  <span>Mises à jour régulières</span>
                 </div>
                 <div className="flex items-center text-gray-300">
                   <MessageSquare className="h-5 w-5 text-blue-500 mr-2" />
-                  <span>Premium Support</span>
+                  <span>Assistance Premium</span>
                 </div>
                 <div className="flex items-center text-gray-300">
                   <Code className="h-5 w-5 text-blue-500 mr-2" />
-                  <span>Clean Code</span>
+                  <span>Code propre</span>
                 </div>
               </div>
             </div>
@@ -197,12 +197,12 @@ const ScriptDisplay: React.FC<ScriptDisplayProps> = ({ script, onClose }) => {
               <div className="flex items-center justify-between mb-2">
                 <div className="flex items-center">
                   <CheckCircle2 className="h-5 w-5 text-green-500 mr-2" />
-                  <span className="text-gray-300">Compatible with your server</span>
+                  <span className="text-gray-300">Compatible avec votre serveur</span>
                 </div>
-                <span className="text-sm text-gray-400">v{script.version}</span>
+                {/* <span className="text-sm text-gray-400">v{script.version}</span> */}
               </div>
               <div className="text-sm text-gray-400">
-                Last updated: {script.lastUpdate}
+                Mise à jour le : {script.lastUpdate}
               </div>
             </div>
           </div>
@@ -228,7 +228,7 @@ const ScriptDisplay: React.FC<ScriptDisplayProps> = ({ script, onClose }) => {
                 }`}
                 onClick={() => setActiveTab('requirements')}
               >
-                Requirements
+                Exigences
               </button>
               <button
                 className={`px-6 py-3 text-sm font-medium transition-colors ${
