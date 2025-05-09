@@ -18,14 +18,15 @@ const categories = [
   'UI/HUD',
   'Vehicles',
   'Weapons',
-  'Admin Tools'
+  'Admin Tools',
+  'Base'
 ];
 
 const ScriptCatalog: React.FC<ScriptCatalogProps> = ({ onScriptClick }) => {
   const { scripts }: { scripts: Script[] } = Datas();
   const [activeCategory, setActiveCategory] = useState('All Categories');
   const [sortBy, setSortBy] = useState('newest');
-  const [priceRange, setPriceRange] = useState([0, 100]);
+  const [priceRange, setPriceRange] = useState([0, 300]);
   const [showFilters, setShowFilters] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -194,7 +195,7 @@ const ScriptCatalog: React.FC<ScriptCatalogProps> = ({ onScriptClick }) => {
                   <input
                     type="range"
                     min="0"
-                    max="100"
+                    max="300"
                     value={priceRange[1]}
                     onChange={(e) => {
                       setPriceRange([priceRange[0], parseInt(e.target.value)]);
