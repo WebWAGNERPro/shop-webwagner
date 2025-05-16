@@ -68,15 +68,16 @@ const ScriptCard: React.FC<ScriptCardProps> = ({ script, featured = false, onScr
 
         {/* Quick actions overlay - shows on hover */}
         <div className={`absolute inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center gap-3 transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
-            <button
-                onClick={() => onScriptClick?.(script)}
-                className="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white p-2 rounded-full transition-transform hover:scale-110"
-            >
-                <Eye className="h-5 w-5" />
-            </button>
-            <button className="bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-full transition-transform hover:scale-110">
-                <ShoppingCart className="h-5 w-5" />
-            </button>
+          <button
+            onClick={() => onScriptClick?.(script)}
+            className="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white p-2 rounded-full transition-transform hover:scale-110"
+            aria-label="Voir les détails"
+          >
+            <Eye className="h-5 w-5" />
+          </button>
+          <button className="bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-full transition-transform hover:scale-110">
+              <ShoppingCart className="h-5 w-5" />
+          </button>
         </div>
       </div>
 
@@ -110,7 +111,7 @@ const ScriptCard: React.FC<ScriptCardProps> = ({ script, featured = false, onScr
 
           <div className="flex items-end">
             {script.isOnSale && (
-              <span className="text-gray-500 line-through text-sm mr-2">${originalPrice}</span>
+              <span className="text-gray-500 line-through text-sm mr-2">${originalPrice.toFixed(2)}</span>
             )}
             <span className="text-white font-bold">${finalPrice.toFixed(2)}</span>
           </div>

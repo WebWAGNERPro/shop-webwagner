@@ -1,9 +1,9 @@
+import { useState, useEffect } from 'react';
 import { Script } from '@/types';
-import React from 'react'
 const Datas = () => {
-    const [scripts, setScripts] = React.useState<Script[]>([])
+    const [scripts, setScripts] = useState<Script[]>([]);
 
-    React.useEffect(() => {
+    useEffect(() => {
         fetch('/api/scripts')
             .then((response) => response.json())
             .then((data) => {
@@ -15,7 +15,7 @@ const Datas = () => {
     }, [])
 
     return {
-        scripts: scripts
+        scripts
     }
 }
 
